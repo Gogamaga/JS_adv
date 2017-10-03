@@ -22,9 +22,7 @@ for(var i = 0; i< ul.length; i++){
 	if(ul[i].parentElement != document.body){
 	 	ul[i].lastElementChild.lastElementChild.classList.add('red');
 		var liText = ul[i].firstElementChild.textContent;
-		var strUper = liText[0].toUpperCase();
-		var newStr = liText.replace(liText[0],strUper);
-		ul[i].firstElementChild.textContent = newStr;
+		ul[i].firstElementChild.textContent = capitalize(liText);
 		var price = ul[i].lastElementChild.firstElementChild.textContent;
 		ul[i].lastElementChild.firstElementChild.textContent = currency.convert(subsPrice(price))
 	}
@@ -34,4 +32,9 @@ function subsPrice(price){
 	var symbol = price.indexOf('$');
 	var subPrice = price.slice(0, symbol);
 	return subPrice;
+}
+function capitalize(string){
+	var firstChar = string[0].toUpperCase();
+	var newString = string.replace(string[0], firstChar);
+	return newString;
 }
