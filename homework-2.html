@@ -1,0 +1,63 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>JS Homework 2: querySelector, date, timeout</title>
+</head>
+<body>
+<!-- Task 2  -->
+  <h1>World time</h1>
+  <ul>
+    <li data-location="london">London - <span class="time">null</span></li>
+    <li data-location="kiev">Kiev - <span class="time">null</span></li>
+    <li data-location="warshawa">Warshawa - <span class="time">null</span></li>
+    <li data-location="los angeles">Los Angeles - <span class="time">null</span></li>
+    <li data-location="new york">New York - <span class="time">null</span></li>
+  </ul>
+
+<script>
+  // вивести для кожного міста час і дату
+  // формат 24.09.2017 - 15:40
+  var cities = [
+    {
+      city : 'london',
+      date : new Date(),
+      timeZone : 3
+    },
+    {
+      city : 'kiev',
+      date : new Date(),
+      timeZone : 0
+    },
+    {
+      city : 'warshawa',
+      date : new Date(),
+      timeZone : 1
+    },
+    {
+      city : 'los angeles',
+      date : new Date(),
+      timeZone : 11
+    },
+    {
+      city : 'new york',
+      date : new Date(),
+      timeZone : 8
+    }
+  ];
+    var li = document.querySelectorAll('li');
+  for(var i = 0; i < li.length; i++){
+    var dataLocation = li[i].dataset.location;
+    for(var key in cities){
+     var city = cities[key].city;
+     if(dataLocation == city){
+       cities[key].date.setHours(cities[key].date.getHours() - cities[key].timeZone);
+       var span  = li[i].querySelector('span.time');
+       span.textContent = cities[key].date.getDate() + '.' + (cities[key].date.getMonth() + 1) + '.' + cities[key].date.getFullYear() + ' - ' + cities[key].date.getHours() + ':' + cities[key].date.getMinutes() + ':' + cities[key].date.getSeconds();
+     }
+    }
+    }
+ 
+  
+</script>
+</body>
+</html>

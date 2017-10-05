@@ -1,0 +1,60 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Clock</title>
+  <style>
+    body {background-color:#666;}
+    #timedate {
+      font: small-caps bold 43px/150% Arial, Helvetica, sans-serif;
+      text-align:left;
+      width: 50%;
+      margin: 20px auto;
+      color:#333;
+      border-left: 20px solid yellow;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <body onLoad="initClock()">
+  <div id="timedate">
+    <a id="mon">January</a>
+    <a id="d">1</a>,
+    <a id="y">0</a><br />
+    <a id="h">12</a> :
+    <a id="m">00</a>:
+    <a id="s">00</a>:
+    <a id="mi">000</a>
+  </div>
+  <script>
+    //1. Показати теперішній час і дату за допомогою обєкта Date
+    //2. За допомогою setTimeout зробити анімацію зміни години і дати.
+    // починаючи з мілісекунд.
+    // Відео демо https://drive.google.com/open?id=0B7z0gHJ0xLUBYWpXR0JRS3pVbmc
+    var month = ['January', 'February', 'March', 'April' ,'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    
+    function initClock(){
+      setTimeout(function(){
+      var date = new Date();
+      document.querySelector('#mon').textContent = month[date.getMonth()];
+      document.querySelector('#d').textContent = date.getDay() + 1;
+      document.querySelector('#y').textContent = date.getFullYear();
+      document.querySelector('#h').textContent = date.getHours();
+      if(date.getMinutes() < 10){
+        document.querySelector('#m').textContent = '0' + date.getMinutes();
+      }else{
+        document.querySelector('#m').textContent = date.getMinutes();
+      }
+      if(date.getSeconds() < 10){
+        document.querySelector('#s').textContent = '0' + date.getSeconds();
+      }else{
+        document.querySelector('#s').textContent = date.getSeconds();
+      }
+      document.querySelector('#mi').textContent = date.getMilliseconds();
+      initClock();
+      },0);
+    }
+    
+  </script>
+</body>
+</html>

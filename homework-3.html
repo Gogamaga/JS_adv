@@ -1,0 +1,31 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>JS Homework 2: querySelector, date, timeout</title>
+</head>
+<body>
+<!-- Task 2  -->
+  <h1>Timer</h1>
+  <h3 class="timer">100</h3>
+
+<script>
+  // Імітувати таймер 
+  // Використовуючи setInterval змінювати число в таймері
+  // 100, 99, 98.... 
+  // з швидкістю 1 секунда
+  // коли час закінчится вивести повідомлення в елементі timer - "Час вийшов"ww
+  var i = 100;
+  var h3 = document.querySelector('.timer');
+  var timer = setInterval(function(){
+    if(i<0){
+      h3.textContent = "Час вийшов";
+      clearInterval(timer);
+    }else{
+    h3.textContent = i;
+    --i;
+    }
+  }, 1000);
+  
+</script>
+</body>
+</html>
