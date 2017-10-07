@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var prioritySelector = [
+            {
+                selector : '#',
+                priority : 100
+            },
+            {
+                selector : '.',
+                priority : 10
+            },
+            {
+                selector : '*',
+                priority : 0
+            },
+            {
+                selector : ' ',
+                priority : 1
+            }
+        ];
+
+        function compareSelector(str1, str2){
+            var priorityStr1 = priority(str1);
+            var priorityStr2 = priority(str2);
+            if(priorityStr1 > priorityStr2){
+                return str1;
+            }else{
+                return str2;
+            }
+        };
+        function priority(str){
+            var priorityCount = 0;
+            for(var i = 0; i < prioritySelector.length; i++){
+                var position = 0;
+                var fromIndex = 0;
+                while(position != -1){
+                    position = str.indexOf(prioritySelector[i].selector, fromIndex);
+                    fromIndex = position + 1;
+                    if(str.indexOf(prioritySelector[i].selector, fromIndex) != -1){
+                        priorityCount += prioritySelector[i].priority; 
+                    }
+                }
+            }
+            if(str[0] != prioritySelector[0].selector && str[0] != prioritySelector[1].selector && str[0] != prioritySelector[2].selector && str[0] != prioritySelector[3].selector){
+                    priorityCount += 1;
+            }
+            return priorityCount;
+        };
+
+        console.log(compareSelector('body #john span', 'menu .item #checkout.active'))
+    </script>
+    
+</body>
+</html>
