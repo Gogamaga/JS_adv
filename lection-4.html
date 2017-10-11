@@ -1,0 +1,35 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Hide element</title>
+        <style>
+            .test{
+                display: none;
+            }
+            span{
+                background: yellow;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum atque error iusto ratione tempore ut quasi architecto sint, voluptatum est nobis cumque earum, porro ducimus a molestiae fugiat nam sed!Aspernatur itaque nesciunt excepturi facilis adipisci dolorem! Id ea ipsum fugiat quis expedita impedit adipisci ad consequuntur tenetur modi blanditiis optio ullam omnis suscipit inventore voluptatum, minus, ex fugit ab?</p>
+        <input type="text" value="">
+        <script>
+            var input = document.querySelector('input');
+            var p =document.querySelector('p');
+           
+            var text = p.innerHTML;
+            input.oninput = function(){
+                var value = input.value;
+                var patern = new RegExp(value,'ig');
+                if(!value){
+                    p.innerHTML = text;
+                }else{
+                    p.innerHTML = text.replace(patern, function(str){
+                        return '<span>' + str + '</span>';
+                    });
+                }
+            };
+        </script>
+    </body>
+    </html>
