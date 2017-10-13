@@ -8,8 +8,10 @@ var data = (function(){
             localStorage.setItem('tasks', JSON.stringify(tasks))
         },
         getAll : function(){
+            if(localStorage.getItem('tasks')){
             var reTask = localStorage.getItem('tasks');
             tasks = JSON.parse(reTask);
+            }
             return tasks;
         },
         updateStatus : function(id){
