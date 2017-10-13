@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div></div>
+    <span class="number"></span>
+    <button class="plus">+</button>
+    <button class="minus">-</button>
+</body>
+<script>
+    var span = document.querySelector('span');
+    var plus = document.querySelector('.plus');
+    var minus = document.querySelector('.minus');
+    span.textContent = localStorage.getItem('num');
+    plus.onclick = function(){
+        var num = localStorage.getItem('num');
+        num++;
+        localStorage.setItem('num', num);
+        span.textContent = num;
+    }
+    minus.onclick = function(){
+        var num = localStorage.getItem('num');
+        num++;
+    }
+
+    var obj = {
+        name : 'Oleg',
+        age : 30
+    };
+    localStorage.setItem('obj', JSON.stringify(obj));
+    var reObj = localStorage.getItem('obj');
+
+    console.log(JSON.parse(reObj))
+
+</script>
+<script src="js/module.js"></script>
+<script src="js/script.js"></script>
+</html>

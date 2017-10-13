@@ -17,6 +17,7 @@ function render(data){
     span.textContent = data.title;
     li.dataset.id = data.id;
     li.dataset.status = data.done;
+    data.done?li.className = 'statusDone':li.className = '';
     div.appendChild(buttonStatus);
     div.appendChild(buttonRemove);
     li.appendChild(span);
@@ -33,7 +34,6 @@ function remove(e){
     var li = e.closest('li');
     var id = li.dataset.id;
     data.removeTask(id);
-    console.log(data.getAll())
     ul.removeChild(li);
 }
 function changeStatus(e){
@@ -41,7 +41,6 @@ function changeStatus(e){
     var status = data.updateStatus(li.dataset.id);
     li.dataset.status = status;
     status? li.className = 'statusDone':li.className = '';
-    console.log(data.getAll())
 };
 
 submit.onclick = function(){
@@ -54,6 +53,7 @@ submit.onclick = function(){
     ul.appendChild(render(task));
     data.add(task);
     document.querySelector('input').value = '';
+    console.log(data.getAll())
 }
 
 

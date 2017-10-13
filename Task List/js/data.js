@@ -1,17 +1,20 @@
 var data = (function(){
-    var tasks = [
-        { id : 1, title : 'Do something', done : false },
-        { id : 2, title : 'Do something other', done : false },
-        { id : 3, title : 'Do something other second', done : false },
-    ]
+    
+    var tasks = [];
+   
     return {
         add : function (task){
             tasks.push(task);
+            localStorage.setItem('tasks', JSON.stringify(tasks))
         },
         getAll : function(){
+            var reTask = localStorage.getItem('tasks');
+            tasks = JSON.parse(reTask);
             return tasks;
         },
         updateStatus : function(id){
+            var reTask = localStorage.getItem('tasks');
+            tasks = JSON.parse(reTask);
             for(var i = 0; i < tasks.length; i++){
                 if(tasks[i].id == id){
                     if(!tasks[i].done){
@@ -19,14 +22,18 @@ var data = (function(){
                     }else{
                         tasks[i].done = false;
                     }
+                    localStorage.setItem('tasks', JSON.stringify(tasks))
                     return tasks[i].done;
                 }
             }
         },
         removeTask : function(id){
+            var reTask = localStorage.getItem('tasks');
+            tasks = JSON.parse(reTask);
             tasks.forEach(function(item, index){
                 if(item.id == id){
                     tasks.splice(index, 1);
+                    localStorage.setItem('tasks', JSON.stringify(tasks))
                 }
             });
 
