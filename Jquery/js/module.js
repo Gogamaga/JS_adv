@@ -1,9 +1,13 @@
-var a = (function(){
-    var self = this;
+
+var $ = (function(){
+    
     var element;
+    
+    
     return  {
         select : function(selector){
             element = document.querySelectorAll(selector);
+            
             return this;
          },
          addClass : function(classAdd){
@@ -11,7 +15,9 @@ var a = (function(){
                 element[i].classList.add(classAdd);
                 
             }
-            return this;
+            return this ;
          }
+         
+         
         }
 })();

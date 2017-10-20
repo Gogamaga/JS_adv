@@ -47,12 +47,17 @@ submit.onclick = function(){
     var date = new Date();
     var value = document.querySelector('input').value;
     var task = {};
-    task.id = date.getTime();
-    task.title = value;
-    task.done = false;
-    ul.appendChild(render(task));
-    data.add(task);
-    document.querySelector('input').value = '';
+    if(value.trim()){
+        task.id = date.getTime();
+        task.title = value;
+        task.done = false;
+        ul.appendChild(render(task));
+        data.add(task);
+        document.querySelector('input').value = '';
+    }else{
+        document.querySelector('input').placeholder = 'Enter your task';
+        document.querySelector('input').value = '';
+    }
     console.log(data.getAll())
 }
 

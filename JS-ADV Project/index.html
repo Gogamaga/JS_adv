@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script src="https://use.fontawesome.com/80c19ed4c0.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    
+    <header>
+        <div>
+            <span class="totalCount"></span>
+            <i class="fa fa-shopping-basket" aria-hidden="true">
+            </i>
+        </div>
+    </header>
+    <div class="itemWrap">
+        <div class="basket">
+            <h3>Корзина</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Назва</td>
+                        <td>Ціна</td>
+                        <td>Кількість</td>
+                        <td>Сума</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <button class="button" onclick="clearBasket()">Очистити корзину</button>
+            <div class="footerBasket">
+                <span>К-ть товарів - 
+                    <span class="totalCount"></span>
+                </span>
+                <span class="totalSum"></span>    
+            </div>           
+        </div>
+        <!-- <div class="itemCart">
+            <div class="itemPhoto">
+                <img src="https://www.myistore.co.za/media/catalog/product/cache/1/image/1600x/9df78eab33525d08d6e5fb8d27136e95/i/p/iphone-5s-black-2_3.jpg" alt="">
+            </div>
+            <div class="infoCart">
+                <h3>Iphone 5S</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate est ab, voluptatem quibusdam tenetur asperiores quam numquam voluptates quo officiis. Placeat, dolor voluptatum. Possimus soluta eius natus sunt quia in.</p>
+            <div>
+                <span class="price">200$</span>
+                <button class="button">Купити</button>
+            </div>
+            </div>
+        </div>
+         -->
+    </div>
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+    <!-- <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://api.openweathermap.org/data/2.5/weather?appid=1cbb9d3c2d3d13f34be51c51afe4b6cb&q=Lviv,ua', false);
+        xhr.send();
+        if(xhr.status != 200){
+            console.log(xhr.status+xhr.statusText)
+        }else{
+            var obj =JSON.parse(xhr.responseText);
+            console.log(obj.main.temp)
+        }
+    </script> -->
+    
+</body>
+</html>

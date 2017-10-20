@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 98vw;
+    max-width: 1366px;
+    font-family:'Raleway', sans-serif;
+}
+header{
+    width: 100%;
+    height: 50px;
+    background: rgb(83, 83, 83);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: whitesmoke;
+}
+header i{
+    font-size: 26px;
+    margin-right: 10px;
+}
+header div{
+    position: relative;
+}
+header span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: rgb(255, 40, 40);
+    bottom: 10px;
+    right: 20px;
+    position: absolute;
+    font-size: 13px;
+}
+.itemWrap{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+}
+.itemCart{
+    width: 45%;
+    height: 300px;
+    margin-top: 10px;
+    background: rgb(245, 245, 245);
+    padding: 10px;
+    display: flex;
+}
+.itemPhoto{
+    width: 45%;
+    display: flex;
+    align-items: center;
+}
+.itemPhoto img{
+    width: 100%;
+}
+.infoCart{
+    width: 50%;
+    padding: 2.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.infoCart span{
+    font-size: 18px;
+    font-weight: bold;
+}
+.button{
+    float: right;
+    transition: all .15s ease-in-out;
+    background: #007bff;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    padding: .5rem .75rem;
+}
+.button:hover{
+    cursor: pointer;
+}
+.infoCart button:hover{
+    background: #0069d9;
+}
+
+/* BASKET */
+.basket{
+    width: 50vw;
+    background: rgba(255, 255, 255,0.8);
+    position: absolute;
+    left: 100%;
+    transition: left .7s;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;   
+}
+.basket.active{
+    left: 49%;
+    -webkit-box-shadow: -6px 6px 25px 2px rgba(128,128,128,1);
+    -moz-box-shadow: -6px 6px 25px 2px rgba(128,128,128,1);
+    box-shadow: -6px 6px 25px 2px rgba(128,128,128,1);
+}
+.basket h3{
+    padding: 5px 0 5px 5px;
+    background: rgba(241, 241, 241, 0.815);
+    border-top-left-radius: 5px;
+    font-family: 'Roboto Slab', serif;
+}
+.basket table{
+    width: 95%;
+    font-weight: bold;
+    margin-bottom: 25px;
+    border-spacing: 0;
+}
+thead{
+    font-size: 18px;    
+}
+tbody td:nth-child(3){
+    text-align: center;
+}
+.basket button{
+    background: #dc3545;
+    padding: .5rem .75rem;
+    transition: all .15s ease-in-out;
+}
+.basket button:hover{
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+td{
+    border-bottom: 1px solid rgb(185, 185, 185);
+}
+.footerBasket{
+    width: 100%;
+    height: 25px;
+    background: #0069d9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Roboto Slab', serif;
+    color: whitesmoke;
+    border-bottom-left-radius: 5px;
+}
+header .plusCount{
+    width: 18px;
+    height: 18px;
+}
+.totalCount{
+    transition: all .4s;
+}

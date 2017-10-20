@@ -13,6 +13,18 @@
     <button class="plus">+</button>
     <button class="minus">-</button>
 </body>
+<script>
+    function log(){
+        console.log('Привіт!');
+    }
+    function callbackLog(callback, delay){
+        return function(){ 
+            setTimeout(callback, delay);
+        }
+    };
+    var callbackLog2 = callbackLog(log,2000)
+    callbackLog2()
+</script>
 <script src="js/module.js"></script>
 <script src="js/script.js"></script>
 </html>
