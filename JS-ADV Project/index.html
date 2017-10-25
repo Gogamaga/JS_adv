@@ -56,19 +56,29 @@
         </div>
          -->
     </div>
+    <div class="test"></div>
     <script src="js/data.js"></script>
     <script src="js/script.js"></script>
-    <!-- <script>
+    <script>
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'http://api.openweathermap.org/data/2.5/weather?appid=1cbb9d3c2d3d13f34be51c51afe4b6cb&q=Lviv,ua', false);
-        xhr.send();
-        if(xhr.status != 200){
-            console.log(xhr.status+xhr.statusText)
-        }else{
-            var obj =JSON.parse(xhr.responseText);
-            console.log(obj.main.temp)
-        }
-    </script> -->
+        var body = 'product=' + JSON.stringify(
+            { "title": "new one" }
+        );
+        xhr.open('POST', 'http://localhost:3000/create', true);// sync
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+
+        xhr.onreadystatechange = function() {
+  if (this.readyState != 4) return;
+
+  console.log( this.readyState );
+}
+        xhr.send('product=' + JSON.stringify({name:"John Rambo", time:"2pm"}));
+        // if (xhr.status != 200) {
+        //     console.log(xhr.status + ': ' + xhr.statusText);
+        // } else {
+        //     console.log(xhr.responseText);
+        // }
+    </script>
     
 </body>
 </html>

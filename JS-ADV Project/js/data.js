@@ -31,16 +31,11 @@ var data = (function(){
     ];
     var basket = [];
     return {
-        getAllItems : function(){
-            return items;
-        },
-        findOne : function(id){
-            for(var i = 0;i < items.length; i++){
-                if(items[i].id == id){
-                    return items[i];
-                }
-            }
-        },        
+        getAllItems : () => items,
+
+        findOne : id => items.filter(item => item.id == id).reduce((oneItem, item) => 
+            oneItem = item
+        , {}),        
         getItemsForBasket : function(){
             if(localStorage.getItem('basket')){
                 var parseBasket = localStorage.getItem('basket');
@@ -49,9 +44,9 @@ var data = (function(){
             return basket;
         },
         setItemToBasket : function(item, basketItem){
-            if(basketItem){
-                basketItem.count++;
-                basketItem.sum = basketItem.price * basketItem.count;
+            if(basketItem.length > 0){
+                basketItem[0].count++;
+                basketItem[0].sum = basketItem[0].price * basketItem[0].count;
                 localStorage.setItem('basket', JSON.stringify(basket));
             }else{
                 item.count = 1;
@@ -60,32 +55,23 @@ var data = (function(){
                 localStorage.setItem('basket', JSON.stringify(basket));
             }
         },
-        findForBasket : function(id, basketItem){
-            for(var i = 0; i<basketItem.length; i++){
-                if(id == basketItem[i].id){
-                    return basketItem[i];
-                }
-            }
-        },
+        findForBasket : (id, basketItem) =>
+             basketItem.filter(item => item.id == id),
+
         removeFromBasket : function(id){
             var parseBasket = localStorage.getItem('basket');
             basket = JSON.parse(parseBasket);
-            basket.forEach(function(item, index){
-                if(item.id == id){
-                    basket.splice(index, 1);
-                    localStorage.setItem('basket', JSON.stringify(basket))
-                }
-            });
+            var filterBasket = basket.filter(item => item.id != id)
+            localStorage.setItem('basket', JSON.stringify(filterBasket))
         },
-        totalCountAndSum : function(basketItem){
-            var total = {sum: 0, count : 0};
-            for(var i = 0; i < basketItem.length; i++){
-                total.count += basketItem[i].count;
-                total.sum += basketItem[i].sum;
-            }
-            return total;
+        totalCountAndSum : basketItem => {
+            return basketItem.reduce((total, item) => {
+                    total.count = (total.count || 0) + item.count;
+                    total.sum = (total.sum || 0) + item.sum;
+                    return total;
+                },{count : 0, sum : 0})
         },
-        clearBasket : function(){
+        clearBasket : () => {
             localStorage.clear();
             basket = [];
         }

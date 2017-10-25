@@ -124,20 +124,17 @@ function clearBasket(){
     recalculationCounAndSum();
 }
 
-
-// var arr = [1,3,54,2,24];
-
-// var obj = {
-//     filter : arr.filter(function(item){
-//         return item>0;
-//     })
+// function request(){
+//     var xhr = new XMLHttpRequest();
+//     xhr.open('GET', 'http://localhost:3333/api/products', false);
+//     xhr.send();
+//     if(xhr.status != 200){
+//         console.log(xhr.status+xhr.statusText)
+//     }else{
+//         var obj =JSON.parse(xhr.responseText);
+//         return obj;
+//     }
 // }
-if({ss: 'as'}){
-    console.log('err')
-}else{
-    console.log('true')
-}
-
 
 
 
